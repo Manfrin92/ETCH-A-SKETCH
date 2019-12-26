@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ETCH-A-SKETCH</title>
+</head>
+
+    <style>
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+            grid-template-rows: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+            border: 1px solid black;
+            width: 320px;
+            margin-left: 160px;            
+        }
+
+        .grid > * {
+            background: white;
+        }        
+
+        h1 {
+            margin-left: 100px;
+        }
+
+        button {
+            margin-left: 160px;
+            margin-top: 60px;
+        }
+
+        img {
+            padding-left: 2px;
+            float: left;
+        }
+
+    </style>
+
+    <h1>ETCH-A-SKETCH - Odin Project.</h1>    
+
+    <div class="grid"> 
+
+    </div> 
+
+    <script>  
+
+        let container = document.getElementsByClassName('grid');
+        let x = 0;
+
+        while (x<256) {
+            let elementoDiv = document.createElement('div');
+            // Vai ter vários 256 divs, o id deles serão de 0 até 255
+            elementoDiv.id = x.toString();
+            container[0].appendChild(elementoDiv);
+
+            elementoDiv.addEventListener('mouseover', function () {
+                elementoDiv.style.background = 'black';
+
+            });
+
+            x += 1;
+            
+        }
+
+        function cleaner() {
+            let y = 0;
+            while (y<256) {
+                window.document.getElementById(y.toString()).style.background = 'white';
+                y++;
+            }
+        }
+
+
+    </script>
+
+    <button id='button' onclick="cleaner()"> Clean</button>
+
+    <img src="image1.png" alt="Baby Anabelle">
+    
+
+</html>
